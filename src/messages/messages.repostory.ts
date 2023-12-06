@@ -9,7 +9,9 @@ export class MessagesRepostory {
   }
 
   async findAll() {
-
+    const contents = await readFile("messages.json", "utf8")
+    const content = JSON.parse(contents)
+    return content
   }
 
   async create(messages: string){
