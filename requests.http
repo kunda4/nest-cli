@@ -1,0 +1,14 @@
+### list all messages
+
+Get http://localhost:3000/messages
+
+### create new message
+Post http://localhost:3000/messages
+Content-Type: application/json
+
+{
+    "content":"Hello my Friend"
+}
+
+### get message by id
+GET http://localhost:3000/messages/12344
