@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { readFile, writeFile } from "fs/promises";
-export class MessagesRepostory {
+export class MessagesRepository {
   async findOne(id: string) {
     const contents = await readFile("messages.json", "utf8")
     const content = JSON.parse(contents)
@@ -14,7 +14,12 @@ export class MessagesRepostory {
     return content
   }
 
-  async create(messages: string){
-
+  async create(message: string){
+    const contents = await readFile("messages.json", "utf8")
+    const content = JSON.parse(contents)
+    const id = Math.floor(Math.random()*999)
+    
+    content[id] = {id, message}
+    await writeFile('messages.json', JSON.stringify(content))
   };
 }
