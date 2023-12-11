@@ -24,4 +24,10 @@ export class MessagesRepository {
     content[id] = {id, message}
     await writeFile('messages.json', JSON.stringify(content))
   };
+  async deleteOne(id: string) {
+    const contents = await readFile("messages.json", "utf8")
+    const content = JSON.parse(contents)
+    return content[id]
+
+  }
 }

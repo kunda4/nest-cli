@@ -13,6 +13,9 @@ export class MessagesServices {
   create(message:string){
     return this.messageRepo.create(message)
   }
+  deleteOne(id:string){
+    return this.messageRepo.deleteOne(id)
+  }
 }
 
 
